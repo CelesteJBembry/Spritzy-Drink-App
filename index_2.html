@@ -32,6 +32,7 @@
         console.log(queryURL);
         console.log(response);
         
+        var drinksList = response.drinks[0];
 
         for (var i = 0; i <= drinks.length; i++) {
           var arrDrinks = response.drinks[i];      
@@ -39,7 +40,7 @@
         
         }
         
-      }
+      });
        /*
         var drinkName = response.drinks[0].strDrink;
         console.log(drinkName);
