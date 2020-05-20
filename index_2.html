@@ -31,26 +31,45 @@
       }).then(function(response) { 
         console.log(queryURL);
         console.log(response);
+        
 
+        for (var i = 0; i <= drinks.length; i++) {
+          var arrDrinks = response.drinks[i];      
+        
+        
+        }
+        
+      }
+       /*
         var drinkName = response.drinks[0].strDrink;
-             console.log(drinkName);
+        console.log(drinkName);
+
+           
             
         for (var i = 1; i <= 15; i++) {
              
+          
+             
              // access response access drinks object 
-             // using bracket to indicate with property of object to select
+             // Reminder: -- ** using bracket to indicate with property of object to select
              var drinkIngredient = response.drinks[0]["strIngredient" + i];
              if (drinkIngredient){
              console.log(drinkIngredient);
-        } 
+             } 
              var amountIngredient = response.drinks[0]["strMeasure" + i];     
-             //console.log(amountIngredient);
+             if (amountIngredient){
+              console.log(amountIngredient);  
+             }
+         
+             
       
-        };
-      });
+            };
+         
+      });*/ 
+
     </script>
     
-    //use bracket notation:
+  
 
 
 </body>
