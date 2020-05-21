@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+       
+          
+      // Original API key substituted into var queryURL was var APIKey = "1" --- key now hardcoded into URL
+      var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+      //console.log(arrAlphaLetters);
+      
+      for (var i = 0; i < arrAlphaLetters.length; i++){
+        
+        // Just to test and check that arrAlphaLetters is working correctly 
+        // console.log(arrAlphaLetters[i]);
+        // document.write(arrAlphaLetters[i]);
+        
+        var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + arrAlphaLetters[i];
+        
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+      }).then(function(response) { 
+        console.log(queryURL);
+        console.log(response);
+        
+        
+        for (var i = 0; i <=response.drinks[0].strDrink[i]; i++){
+            var drinkName = response.drinks[0].strDrink[i];
+            console.log(drinkName);
+
+            // This pulls ALL drinks from the CocktailDB database.
+          }
+          
+          /*====================================================================================
+          Keep this code for attempt to call drink ingredients and quantities of ingredients
+          to make drinks
+          ====================================================================================
+          var drinkName = response.drinks[0].strDrink;
+          console.log(drinkName);
+          
+          
+          
+          for (var i = 1; i <= 15; i++) {
+            
+            
+            
+            // access response access drinks object 
+            // Reminder: -- ** using bracket to indicate with property of object to select
+            var drinkIngredient = response.drinks[0]["strIngredient" + i];
+            if (drinkIngredient){
+             console.log(drinkIngredient);
+            } 
+            var amountIngredient = response.drinks[0]["strMeasure" + i];     
+             if (amountIngredient){
+              console.log(amountIngredient);  
+            }
+            
+            
+            
+          };
+          
+        });
+
+        ================================================================*/
+        
+      });  
+
+    } 
+    </script>
+    
+  
+    
+    // Create letter array to input all possible drink letters in API call.
+
+</body>
+</html>
