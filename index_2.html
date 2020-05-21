@@ -22,11 +22,15 @@
       // Let's set the letters on screen so that users can select the first letter of their drink.
         var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
         console.log(arrAlphaLetters);  
-      
-        for (var i = 0; i < arrAlphaLetters.length; i++){ 
 
-      // Original API key substituted into var queryURL was var APIKey = "1" --- key now hardcoded into URL
-        var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + arrAlphaLetters[i];
+        // WE need an event listener for click event when user clicks on letter
+        // onclick even that listens to all letter
+        
+      
+        //   for (var i = 0; i < arrAlphaLetters.length; i++){ 
+
+        // Original API key substituted into var queryURL was var APIKey = "1" --- key now hardcoded into URL
+        var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=";
       
       
         
@@ -41,18 +45,18 @@
 
         
 
-        for (var i = 0; i < arrAlphaLetters.length; i++){
+           for (var i = 0; i < arrAlphaLetters.length; i++){
 
-          var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
-          console.log(arrAlphaLetters);
+          //var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+          //console.log(arrAlphaLetters);
         
         //Just to test and check that arrAlphaLetters is working correctly 
-          console.log(arrAlphaLetters[i]);
-          document.write(arrAlphaLetters[i]);
+           // console.log(arrAlphaLetters[i]);
+           // document.write(arrAlphaLetters[i]);
         
-          var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + arrAlphaLetters[i];
+           // var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + arrAlphaLetters[i];
         
-          var arrDrinks = new Array ();
+           // var arrDrinks = new Array ();
 
           arrDrinks = $("<h3>").text(response.drinks[0].strDrink);
           var imageDrink = $("<img>").attr("src", response.drinks[0].strDrinkThumb);
@@ -72,7 +76,10 @@
             // This pulls ALL drinks from the CocktailDB database.
       });
           
-      }    /*====================================================================================
+      // line 26 }    
+      
+      
+         /*====================================================================================
           Keep this code for attempt to call drink ingredients and quantities of ingredients
           to make drinks
           ====================================================================================
