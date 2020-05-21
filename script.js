@@ -70,6 +70,8 @@ function letterGenerate () {
   newSpanForLetters.attr("data-letter", arrAlphaLetters[i]);
   $(".lettersDiv").append(newSpanForLetters);
 
+
+
   
   // to that div we need to update the text content to be equal to where we are in the array
   // .arrAlphaLetters[i]
@@ -101,8 +103,55 @@ $(document).ready(function(){
       method: "GET"
     }).then(function(response) { 
         //console.log(queryURL);
-        console.log(response);
+        console.log(response.drinks[0]);
+        
 
+       // var arrDrinks = response.drinks[i];
+                     
+         // var drinkName = response.drinks[0].strDrink;
+         // console.log(response.drinks[0].strDrink);
+
+         // var drinkImg = response.drinks[0].strDrinkThumb;
+          //console.log(response.drinks[0].strDrink);
+          
+         // $("#drinkcard0name").text(drinkName);
+         // $("#drinkcard0img").attr("src", drinkImg);
+
+
+         for (var i = 0; i < 7; i++){
+
+
+            var drinkName = response.drinks[i].strDrink;
+         // console.log(response.drinks[i].strDrink);
+
+            var drinkImg = response.drinks[i].strDrinkThumb;
+          //console.log(response.drinks[0].strDrink);
+          
+            $("#drinkcard" + [i] + "name").text(drinkName);
+            $("#drinkcard" + [i] + "img").attr("src", drinkImg);
+
+
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
     })
 
 
@@ -111,6 +160,8 @@ $(document).ready(function(){
 
 }) 
 
+
+// Look at API to see if we can limit return to 6 items if possible
 
 
 
