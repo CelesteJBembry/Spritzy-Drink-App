@@ -66,7 +66,10 @@ function letterGenerate () {
   var newSpanForLetters = $("<span>");
   newSpanForLetters.text(arrAlphaLetters[i].toUpperCase());
   newSpanForLetters.css("padding", "0.8rem");
+  newSpanForLetters.attr("class","letterSpan");
+  newSpanForLetters.attr("data-letter", arrAlphaLetters[i]);
   $(".lettersDiv").append(newSpanForLetters);
+
   
   // to that div we need to update the text content to be equal to where we are in the array
   // .arrAlphaLetters[i]
@@ -85,12 +88,25 @@ function letterGenerate () {
 $(document).ready(function(){
   letterGenerate();
 
+  $(".letterSpan").on("click",function(){
+    console.log("clicked");
+    
+    var letterValue = $(this).attr("data-letter");
+    console.log(letterValue);
+
+    var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + letterValue;
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) { 
+        //console.log(queryURL);
+        console.log(response);
+
+    })
 
 
-
-
-
-
+  })
 
 
 }) 
