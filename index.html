@@ -68,20 +68,71 @@
   </div>
   <div class="grid-container">
 
+<!-- ===================================================================================-->
+<!-- Move Alphabet search section to top of drinkPage.html. Will not be on landing page.-->
+
+
     <div class="top-bar" id="alphabetbar" data-animate="hinge-in-from-top spin-out">
       <div class="top-bar-left">
-  <div id="alphabetselect">
-    <h2></h2>
-    <h3>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=A">A</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=B">B</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=C">C</a>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=D">D</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=E">E</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=F">F</a>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=G">G</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=H">H</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=I">I</a>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=J">J</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=K">K</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=L">L</a>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=M">M</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=N">N</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=O">O</a>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=P">P</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=Q">Q</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=R">R</a>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=S">S</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=T">T</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=U">U</a>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=V">V</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=W">W</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=X">X</a>
-    <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=Y">Y</a> <a href="https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=Z">Z</a>
+       <div id="alphabetselect">
+        <h2></h2>
+        <h3>
+
+     
+    <!-- API URL ===== "drinkPage.html" + lettervariable" 
+               Done with AJAX only difference letter at the end.
+
+               Try to limt AJAX call to 6 items.
+
+               With response back make sure to get data into 1 card (top left) ===> try for for loop iteration
+
+               ID drink card 0, 1, 2, 3,.... using i to iterate
+    -->
+
+
+    <!-- 
+         When user presses to go to the letter search page - automatically run the "A" letter search as the default
+         page action.
+    -->  
+     
+    <!-- On user eventclick of letter, letter is clicked we want to use jQuery to grab the value of each letter. -->  
+    <!-- With that value A, B, C -- make AJAX call and concatenate the Letter value to the end of queryURL -->
+    <!-- Acchor tag -->
+
+    <!-- 
+        One drink page with letters to select.  All anchor href should link to the dringPage.html 
+        
+        Look @ fridge example
+
+        From fridge example -- 
+
+        Create the on-click event attached to a ".letter" class
+        $(".letter").on("click", function(){
+           var fridgeMagnet = $("<div");
+           fridgeMagnet.addClass("letter color");
+           fridgeMagnet.text($(this).attr("data-letter"));
+           $("#display").append(fridgeMagnet);
+
+        });
+
+    
+
+
+
+
+
+
+    -->
+
+
+    <a href="drinkPage.html">A</a> <a href="drinkPage.html">B</a> <a href="drinkPage.html">F</a>
+    <a href="drinkPage.html">G</a> <a href="drinkPage.html">H</a> <a href="drinkPage.html">I</a>
+    <a href="drinkPage.html">J</a> <a href="drinkPage.html">K</a> <a href="drinkPage.html">L</a>
+    <a href="drinkPage.html">M</a> <a href="drinkPage.html">N</a> <a href="drinkPage.html">O</a>
+    <a href="drinkPage.html">P</a> <a href="drinkPage.html">Q</a> <a href="drinkPage.html">R</a>
+    <a href="drinkPage.html">S</a> <a href="drinkPage.html">T</a> <a href="drinkPage.html">U</a>
+    <a href="drinkPage.html">V</a> <a href="drinkPage.html">W</a> <a href="drinkPage.html">X</a>
+    <a href="drinkPage.html">Y</a> <a href="drinkPage.html">Z</a>
     </h3></div>  <!-- </a> --> 
     </div>
    </div>
@@ -98,6 +149,31 @@
         <div class="card-divider">
           <h4>Featured Drink!</h4>
         </div>
+       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+
+        var randomDrink = $("<h3>").text(response.drinks[0].strDrink);
+        var imageDrink = $("<img>").attr("src", response.drinks[0].strDrinkThumb);
+        console.log(randomDrink)
+        $(".random").html(randomDrink);
+        $(".random").append(imageDrink);
+        $(".random").append("<h5>Click for Recipe!</h5>");
+        $(".random").append("<h5>Click for Random Drink!</h5>");
+
+        });
+
+       </script>
+       
+       
+       
+       
         <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview">
         <div class="card-section">
           <p>This card makes use of the card-divider element.</p>

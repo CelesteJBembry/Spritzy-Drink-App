@@ -1,3 +1,8 @@
+<!--
+    This is just a testing HTML file to test output of data and see what it
+    looks like on page.  
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,40 +10,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <body>
+  <p>Just filler test text.</p> 
+  <p>Create letter array to input all possible drink letters in API call.</p>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
        
-          
-      // Original API key substituted into var queryURL was var APIKey = "1" --- key now hardcoded into URL
-      var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
-      //console.log(arrAlphaLetters);
+      // Let's set the letters on screen so that users can select the first letter of their drink.
+        var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+        console.log(arrAlphaLetters);  
       
-      for (var i = 0; i < arrAlphaLetters.length; i++){
-        
-        // Just to test and check that arrAlphaLetters is working correctly 
-        // console.log(arrAlphaLetters[i]);
-        // document.write(arrAlphaLetters[i]);
-        
+        for (var i = 0; i < arrAlphaLetters.length; i++){ 
+
+      // Original API key substituted into var queryURL was var APIKey = "1" --- key now hardcoded into URL
         var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + arrAlphaLetters[i];
+      
+      
         
+        //var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+
         $.ajax({
           url: queryURL,
           method: "GET"
-      }).then(function(response) { 
-        console.log(queryURL);
+        }).then(function(response) { 
+        //console.log(queryURL);
         console.log(response);
+
         
+
+        for (var i = 0; i < arrAlphaLetters.length; i++){
+
+          var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+          console.log(arrAlphaLetters);
         
-        for (var i = 0; i <=response.drinks[0].strDrink[i]; i++){
-            var drinkName = response.drinks[0].strDrink[i];
-            console.log(drinkName);
+        //Just to test and check that arrAlphaLetters is working correctly 
+          console.log(arrAlphaLetters[i]);
+          document.write(arrAlphaLetters[i]);
+        
+          var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + arrAlphaLetters[i];
+        
+          var arrDrinks = new Array ();
+
+          arrDrinks = $("<h3>").text(response.drinks[0].strDrink);
+          var imageDrink = $("<img>").attr("src", response.drinks[0].strDrinkThumb);
+          console.log(arrDrinks);
+
+          $(".drinks").html(newDrink);
+          $(".drinks").append(imageDrink);
+          $(".drinks").append("<h5>Click for Recipe!</h5>");
+          $(".drinks").append("<h5>Click for Random Drink!</h5>");
+
+        }
+
+       // for (var i = 0; i <=response.drinks[0].strDrink[i]; i++){
+       //     var drinkName = response.drinks[0].strDrink[i];
+       //     console.log(drinkName);
 
             // This pulls ALL drinks from the CocktailDB database.
-          }
+      });
           
-          /*====================================================================================
+      }    /*====================================================================================
           Keep this code for attempt to call drink ingredients and quantities of ingredients
           to make drinks
           ====================================================================================
@@ -70,14 +104,9 @@
 
         ================================================================*/
         
-      });  
-
-    } 
-    </script>
-    
   
-    
-    // Create letter array to input all possible drink letters in API call.
+   
+</script>
 
 </body>
 </html>
