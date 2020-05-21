@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation Starter Template</title>
+    <title>Spritzy Drink Suggestion App</title>
     <link rel="stylesheet" href="css/foundation.css" />
 <!-- Compressed CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
@@ -12,95 +12,106 @@
 <!-- Compressed JavaScript -->
 
 <style>
+  
     body {
         background-image: url('SocialDrinks.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
     }
-
     .opacity {
-  opacity: 0.6;
-}
+        opacity: 0.7;
+    }
+    .center {
+        text-align: center;
+    }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script></head>
-  <body>
+
+<link rel="stylesheet" type="text/css" href="./assets/style.css">
+
+<!-- Was missing closing </head> tag before <body> tag. -->
+</head>  <!-- So I input it here. Lewis-->
+<body>
    
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.min.js"></script>
     
-    <div class="title-bar" data-responsive-toggle="example-animated-menu" data-hide-for="medium">
-        <button class="menu-icon" type="button" data-toggle></button>
-        <div class="title-bar-title">Menu</div>
-      </div>
-
-
-
 <div class="grid-container">
 <!--Navbar-->
-  <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
-    <div class="top-bar-left">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">Site Title</li>
-          <a href="#">One</a>
-          <ul class="menu vertical">
-            <li><a href="#">Full Drink List</a></li>
-            <li><a href="#">Ingredient Search</a></li>
-            <li><a href="#">Calculator</a></li>
-            <li><a href="#">Drink Suggestions</a></li>
-        </ul>
-    </div>
-  </div>
+<div class="top-bar">
+  <div class="top-bar-left">
+
+<ul class="menu">
+  <li class="menu-text">Spritzy</li>
+  <li class="is-active"><a href="#">Home</a></li>
+  <li><a href="#">Drink Ingredients</a></li>
+  <li><a href="#">Drink List</a></li>
+  <li><a href="#">Find a Store</a></li>
+</ul>
+</div>
+
+<div class="top-bar-right">
+  <ul class="menu">
+    <li><input type="search" placeholder="Search"></li>
+    <li><button type="button" class="button">Search</button></li>
+  </ul>
+</div>
+</div>
 
 <!--Top Row-->
 <br>
 <br>
   <div class="grid-x grid-margin-x">
     
-    <div class="cell small-4">
-  
-      <div class="card" style="width: 300px;">
-        <div class="card-divider">
-          <h4>Featured Drink!</h4>
-        </div>
-        <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview">
-        <div class="card-section">
-          <p>This card makes use of the card-divider element.</p>
-        </div>
+    <div class="cell small-4 center style=width: 300px;">
+      <div class="card opacity random" >
+        <div class="card-divider"></div>
+        <div class="card-section"></div>
+        <div id="ingredientsClick"></div>
       </div>
-
     </div>
 
 
-    <div class="cell small-8 opacity">
-          
+    <div class="cell small-7 opacity">
       <div class="callout large" class="callout secondary">
-        <h5>What kind of drink are looking to make? </h5>
-        <p>*Include the category button in this box. ex: shot, cocktail, punch etc. </p>
-        <a href="#">It's dangerous to go alone, take this.</a>
-      </div>
-      
-<br>
-<br>
+        <h5>Welcome. What kind of drink are looking to make?</h5>
+        <p>Please select the first letter of your choice of drink from the options above.</p>
 
-      <div class="callout large">
-        <h5>What's your theme/event, etc? </h5>
-        <p>It has an easy to override visual style, and is appropriately subdued.</p>
+        <!-- <p>*Include the category button in this box. ex: shot, cocktail, punch etc. </p> -->
         <a href="#">It's dangerous to go alone, take this.</a>
       </div>
-    
     </div>
 
-
-
-    </div>    
-  </div>
+</div>    
+</div>
     
-    <script>
-      $(document).foundation();
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+      
+   
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        
+        console.log(response);
+
+        var randomDrink = $("<h3>").text(response.drinks[0].strDrink);
+        var imageDrink = $("<img>").attr("src", response.drinks[0].strDrinkThumb);
+        console.log(randomDrink)
+        $(".random").html(randomDrink);
+        $(".random").append(imageDrink);
+        $(".random").append("<h5>Click for Recipe!</h5>");
+        $(".random").append("<h5>Click for Random Drink!</h5>");
+      });
+      
+
 
     </script>
 
