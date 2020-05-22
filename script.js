@@ -129,8 +129,6 @@ $(document).ready(function(){
           
             $("#drinkcard" + [i] + "name").text(drinkName);
             $("#drinkcard" + [i] + "img").attr("src", drinkImg);
-
-
           }
 
 
@@ -162,7 +160,4 @@ $(document).ready(function(){
 
 
 // Look at API to see if we can limit return to 6 items if possible
-
-
-
 
