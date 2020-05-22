@@ -1,8 +1,10 @@
 // Let's set the letters on screen so that users can select the first letter of their drink.
         
-
+ console.log("loaded")
       // This pulls ALL drinks from the CocktailDB database.
 
+
+      /*
       // Original API key substituted into var queryURL was var APIKey = "1" --- key now hardcoded into URL
       var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
       //console.log(arrAlphaLetters);
@@ -32,3 +34,133 @@
       });  
 
     } 
+ */
+// code to recycle
+/*
+ var randomDrink = $("<h3>").text(response.drinks[0].strDrink);
+        var imageDrink = $("<img>").attr("src", response.drinks[0].strDrinkThumb);
+        console.log(randomDrink)
+        $(".random").html(randomDrink);
+        $(".random").append(imageDrink);
+        $(".random").append("<h5>Click for Recipe!</h5>");
+        $(".random").append("<h5>Click for Random Drink!</h5>");
+
+
+
+*/
+
+// Global var
+var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+
+
+function letterGenerate () {
+
+
+  for (var i = 0; i < arrAlphaLetters.length; i++){
+  //console.log(arrAlphaLetters[i]);
+
+  // each time the for loop runs we are going to use jquery to craete a new div
+  // stored in element letterEl 
+
+
+  var newSpanForLetters = $("<span>");
+  newSpanForLetters.text(arrAlphaLetters[i].toUpperCase());
+  newSpanForLetters.css("padding", "0.8rem");
+  newSpanForLetters.attr("class","letterSpan");
+  newSpanForLetters.attr("data-letter", arrAlphaLetters[i]);
+  $(".lettersDiv").append(newSpanForLetters);
+
+
+
+  
+  // to that div we need to update the text content to be equal to where we are in the array
+  // .arrAlphaLetters[i]
+
+  // then we are going to append our html element letterEl to letters Div class
+
+
+  // in between the menu and the cards are at line 54 of drinkPage.html
+  // Can we use a function() { }  called when the page loads that will automatically 
+  // do this?
+
+  }
+
+}
+
+$(document).ready(function(){
+  letterGenerate();
+
+  $(".letterSpan").on("click",function(){
+    console.log("clicked");
+    
+    var letterValue = $(this).attr("data-letter");
+    console.log(letterValue);
+
+    var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + letterValue;
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) { 
+        //console.log(queryURL);
+        console.log(response.drinks[0]);
+        
+
+       // var arrDrinks = response.drinks[i];
+                     
+         // var drinkName = response.drinks[0].strDrink;
+         // console.log(response.drinks[0].strDrink);
+
+         // var drinkImg = response.drinks[0].strDrinkThumb;
+          //console.log(response.drinks[0].strDrink);
+          
+         // $("#drinkcard0name").text(drinkName);
+         // $("#drinkcard0img").attr("src", drinkImg);
+
+
+         for (var i = 0; i < 7; i++){
+
+
+            var drinkName = response.drinks[i].strDrink;
+         // console.log(response.drinks[i].strDrink);
+
+            var drinkImg = response.drinks[i].strDrinkThumb;
+          //console.log(response.drinks[0].strDrink);
+          
+            $("#drinkcard" + [i] + "name").text(drinkName);
+            $("#drinkcard" + [i] + "img").attr("src", drinkImg);
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+    })
+
+
+  })
+
+
+}) 
+
+
+// Look at API to see if we can limit return to 6 items if possible
+
+
+
+
