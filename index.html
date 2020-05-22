@@ -12,13 +12,6 @@
 <!-- Compressed JavaScript -->
 
 <style>
-  
-    body {
-        background-image: url('SocialDrinks.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 100% 100%;
-    }
     .opacity {
         opacity: 0.7;
     }
@@ -43,10 +36,10 @@
 
 <ul class="menu">
   <li class="menu-text">Spritzy</li>
-  <li class="is-active"><a href="#">Home</a></li>
-  <li><a href="#">Drink Ingredients</a></li>
-  <li><a href="#">Drink List</a></li>
-  <li><a href="#">Find a Store</a></li>
+  <li class="is-active"></li><a href="index.html">Home</a></li>
+  <li><a href="drinkPage.html">Cocktail List</a></li>
+  <li><a href="drinkIngredients.html">Cocktail Ingredients</a></li>
+  <li><a href="wine.html">Wine List</a></li>
 </ul>
 </div>
 
@@ -60,7 +53,6 @@
 
 <!--Top Row-->
 <br>
-<br>
   <div class="grid-x grid-margin-x">
     
     <div class="cell small-4 center style=width: 300px;">
@@ -72,20 +64,31 @@
     </div>
 
 
-    <div class="cell small-7 opacity">
-      <div class="callout large" class="callout secondary">
-        <h5>Welcome. What kind of drink are looking to make?</h5>
-        <p>Please select the first letter of your choice of drink from the options above.</p>
-
-        <!-- <p>*Include the category button in this box. ex: shot, cocktail, punch etc. </p> -->
-        <a href="#">It's dangerous to go alone, take this.</a>
+  <div class="cell small-3">
+    <div class="card" style="width: 500px;">
+      <div class="card-divider">
       </div>
+      <img src="SocialDrinks.jpg">
     </div>
+  </div>
 
 </div>    
-</div>
-    
 
+<!--Second Row-->
+<div class="cell small-7 opacity">
+  <div class="callout large" class="callout secondary">
+    <h5>Welcome. What kind of drink are looking to make?</h5>
+    <div class="button-group">
+      <a class="button">Cocktails</a>
+      <a class="button">Shots</a>
+      <a class="button">Punch</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!--Random drink Script-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -107,7 +110,6 @@
         $(".random").append("<h5>Click for Random Drink!</h5>");
       });
       
-
 
     </script>
 
