@@ -6,22 +6,31 @@
     <title>Document</title>
 </head>
 <body>
+  <div class="grid-x grid-margin-x">
     
+    <div class="cell small-4 center style=width: 300px;">
+      <div class="card opacity drinkA" >
+        <div class="card-divider"></div>
+        <div class="card-section"></div>
+        <div id="ingredientsClick"></div>
+      </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
        
           
       // Original API key substituted into var queryURL was var APIKey = "1" --- key now hardcoded into URL
-      var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+      //var arrAlphaLetters = new Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
       //console.log(arrAlphaLetters);
       
-      for (var i = 0; i < arrAlphaLetters.length; i++){
+      //for (var i = 0; i < arrAlphaLetters.length; i++){
         
         // Just to test and check that arrAlphaLetters is working correctly 
         // console.log(arrAlphaLetters[i]);
         // document.write(arrAlphaLetters[i]);
         
-        var queryURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=" + arrAlphaLetters[i];
+        var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a"
         
         $.ajax({
           url: queryURL,
@@ -30,14 +39,28 @@
         console.log(queryURL);
         console.log(response);
         
-        
-        for (var i = 0; i <=response.drinks[0].strDrink[i]; i++){
-            var drinkName = response.drinks[0].strDrink[i];
-            console.log(drinkName);
+        for (var i = 0; i < response.length; i++){
+        var aDrinks = $("<h3>").text(response.drinks[i].strDrink);
+        var imageDrink = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
+        console.log(aDrinks)
+        console.log(imageDrink)
+        $(".drinkA").html(aDrinks);
+        $(".drinkA").append(imageDrink);
+        }
+      
+      console.log(DrinkList)
+
+      $(".drinkA").append(DrinkList);
+      });
+      
+
+        //for (var i = 0; i <=response.drinks[0].strDrink[i]; i++){
+            //var drinkName = response.drinks[0].strDrink[i];
+           // console.log(drinkName);
 
             // This pulls ALL drinks from the CocktailDB database.
-          }
           
+      
           /*====================================================================================
           Keep this code for attempt to call drink ingredients and quantities of ingredients
           to make drinks
@@ -69,15 +92,7 @@
         });
 
         ================================================================*/
-        
-      });  
-
-    } 
+    
     </script>
-    
-  
-    
-    // Create letter array to input all possible drink letters in API call.
-
 </body>
 </html>
