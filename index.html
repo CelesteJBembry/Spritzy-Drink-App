@@ -12,16 +12,6 @@
 <!-- Compressed JavaScript -->
 
 <style>
-  
-    body {
-        background-image: url('SocialDrinks.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 100% 100%;
-    }
-    .opacity {
-        opacity: 0.7;
-    }
     .center {
         text-align: center;
     }
@@ -43,10 +33,10 @@
 
 <ul class="menu">
   <li class="menu-text">Spritzy</li>
-  <li class="is-active"><a href="#">Home</a></li>
-  <li><a href="#">Drink Ingredients</a></li>
-  <li><a href="#">Drink List</a></li>
-  <li><a href="#">Find a Store</a></li>
+  <li class="is-active"></li><a href="index.html">Home</a></li>
+  <li><a href="drinkPage.html">Cocktail List</a></li>
+  <li><a href="drinkIngredients.html">Cocktail Ingredients</a></li>
+  <li><a href="wine.html">Wine List</a></li>
 </ul>
 </div>
 
@@ -58,12 +48,26 @@
 </div>
 </div>
 
-<!--Top Row-->
+
 <br>
+<!-- Row-->
+<div class="grid-x grid-margin-x">
+  <div class="cell center">
+    <div class="callout small" class="callout secondary">
+      <h5>Everyone loves a good drink. What kind of drink are looking to make?</h5>
+      <div class="button-group center">
+        <a class="button large">Cocktails</a>
+        <a class="button large">Shots</a>
+        <a class="button large">Punch</a>
+      </div>
+    </div>
+  </div>
+  </div>
+<!--Top Row-->
 <br>
   <div class="grid-x grid-margin-x">
     
-    <div class="cell small-4 center style=width: 300px;">
+    <div class="cell small-4 center style="height: 300px;>
       <div class="card opacity random" >
         <div class="card-divider"></div>
         <div class="card-section"></div>
@@ -71,21 +75,20 @@
       </div>
     </div>
 
-
-    <div class="cell small-7 opacity">
-      <div class="callout large" class="callout secondary">
-        <h5>Welcome. What kind of drink are looking to make?</h5>
-        <p>Please select the first letter of your choice of drink from the options above.</p>
-
-        <!-- <p>*Include the category button in this box. ex: shot, cocktail, punch etc. </p> -->
-        <a href="#">It's dangerous to go alone, take this.</a>
-      </div>
+  <div class="cell small-8">
+    <div class="card">
+      <img src="SocialDrinks.jpg">
     </div>
+  </div>
 
+  
 </div>    
-</div>
-    
 
+
+
+</div>
+
+<!--Random drink Script-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -107,7 +110,6 @@
         $(".random").append("<h5>Click for Random Drink!</h5>");
       });
       
-
 
     </script>
 
